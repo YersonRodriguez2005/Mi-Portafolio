@@ -20,6 +20,12 @@ const projects = [
     technologies: ['React', 'Vite', 'Python', 'Flask'],
     live: 'https://fylec.com.co'
   },
+  {
+    name: 'restaurant-interactive-menu',
+    description: 'Es un proyecto que presenta el menú de un restaurante de forma interactiva, organizado por categorías como entradas, platos principales, postres y bebidas.',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    live: 'https://yersonrodriguez2005.github.io/restaurant-interactive-menu/'
+  },
   // Puedes agregar más proyectos según sea necesario
 ];
 
