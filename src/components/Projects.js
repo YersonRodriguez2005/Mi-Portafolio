@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
-import { FaReact, FaPython, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaReact, FaPython, FaExternalLinkAlt, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
 import { SiFlask, SiVite } from 'react-icons/si';
 
 // Mapeo de tecnologías a iconos con sus colores representativos
@@ -9,7 +9,10 @@ const techIcons = {
   'React': { icon: FaReact, color: '#61DAFB' },
   'Vite': { icon: SiVite, color: '#646CFF' },
   'Python': { icon: FaPython, color: '#3776AB' },
-  'Flask': { icon: SiFlask, color: '#000000' }
+  'Flask': { icon: SiFlask, color: '#000000' },
+  'HTML': { icon: FaHtml5, color: '#E34F26' },
+  'CSS': { icon: FaCss3Alt, color: '#1572B6' },
+  'JavaScript': { icon: FaJs, color: '#F7DF1E' }
 };
 
 // Datos de los proyectos
@@ -29,7 +32,7 @@ const projects = [
   // Puedes agregar más proyectos según sea necesario
 ];
 
-const TechIcon = ({ tech, isDark }) => {
+const TechIcon = ({ tech }) => {
   const { icon: IconComponent, color } = techIcons[tech] || {};
   return IconComponent ? (
     <IconComponent 
@@ -56,7 +59,7 @@ const ProjectCard = ({ project, isDark }) => (
       </p>
       <div className="flex flex-wrap gap-4 mb-4">
         {project.technologies.map((tech, i) => (
-          <TechIcon key={i} tech={tech} isDark={isDark} />
+          <TechIcon key={i} tech={tech} />
         ))}
       </div>
       <div className="flex justify-between">
