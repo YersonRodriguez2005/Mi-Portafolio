@@ -1,28 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaPhp, FaPython, FaReact, FaNodeJs, FaGit } from 'react-icons/fa';
-import { SiDjango, SiMysql, SiGithub } from 'react-icons/si';
 import { useTheme } from '../contexts/ThemeContext';
 
-// Datos de las habilidades con iconos y colores
+// Datos de las habilidades con logos
 const skills = {
   Lenguajes: [
-    { name: 'HTML5', icon: <FaHtml5 size={32} />, color: '#E34F26' },
-    { name: 'CSS3', icon: <FaCss3Alt size={32} />, color: '#1572B6' },
-    { name: 'JavaScript', icon: <FaJsSquare size={32} />, color: '#F7DF1E' },
-    { name: 'PHP', icon: <FaPhp size={32} />, color: '#787CB5' },
-    { name: 'Python', icon: <FaPython size={32} />, color: '#306998' }
+    { name: 'HTML5', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg' },
+    { name: 'CSS3', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg' },
+    { name: 'JavaScript', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png' },
+    { name: 'PHP', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg' },
+    { name: 'Python', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg' }
   ],
   Frameworks: [
-    { name: 'React', icon: <FaReact size={32} />, color: '#61DAFB' },
-    { name: 'Django', icon: <SiDjango size={32} />, color: '#092E20' }
+    { name: 'React', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg' },
+    { name: 'Django', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg' }
   ],
   Bases_de_Datos: [
-    { name: 'MySQL/MariaDB', icon: <SiMysql size={32} />, color: '#4479A1' }
+    { name: 'MySQL/MariaDB', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/0a/MySQL_textlogo.svg' }
   ],
   Herramientas: [
-    { name: 'Git', icon: <FaGit size={32} />, color: '#F1502F' },
-    { name: 'GitHub', icon: <SiGithub size={32} />, color: '#181717' }
+    { name: 'Git', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Git_icon.svg' },
+    { name: 'GitHub', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg' },
+    { name: 'Visual Studio Code', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9a/Visual_Studio_Code_1.35_icon.svg' },
+    { name: 'ChatGPT', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg' }
   ]
 };
 
@@ -35,17 +35,15 @@ const SkillCard = ({ category, items, isDark }) => (
     transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
   >
     <h3 className={`text-xl font-semibold mb-4 capitalize ${isDark ? 'text-gray-200' : 'text-gray-700'}`}>{category}</h3>
-    <ul className="flex flex-wrap gap-4">
+    <ul className="flex flex-wrap gap-4 justify-center">
       {items.map((item, index) => (
         <motion.li 
           key={index}
           className="flex flex-col items-center gap-2"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.2, rotate: 10 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <div className="p-3 rounded-full" style={{ backgroundColor: item.color }}>
-            {item.icon}
-          </div>
+          <img src={item.logo} alt={item.name} style={{ width: '48px', height: '48px' }} />
           <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>{item.name}</span>
         </motion.li>
       ))}
