@@ -15,7 +15,6 @@ const skills = {
   ],
   Frameworks: [
     { name: 'React', icon: <FaReact size={32} />, color: '#61DAFB' },
-    { name: 'Node.js', icon: <FaNodeJs size={32} />, color: '#339933' },
     { name: 'Django', icon: <SiDjango size={32} />, color: '#092E20' }
   ],
   Bases_de_Datos: [
