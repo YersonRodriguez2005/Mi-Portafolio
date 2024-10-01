@@ -1,16 +1,17 @@
 import React, { lazy, Suspense } from 'react';
-import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import { ThemeProvider, useTheme,  } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Introduction from './components/Introduction';
 import Footer from './components/Footer';
 import { Loader2 } from 'lucide-react';
+import './App.css'
 
 const Projects = lazy(() => import('./components/Projects'));
 const Skills = lazy(() => import('./components/Skills'));
 const About = lazy(() => import('./components/About'));
 
 const AppContent = () => {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-900 text-gray-100'}`}>
@@ -33,10 +34,18 @@ const AppContent = () => {
           </section>
         </Suspense>
       </main>
-    <Footer></Footer>
-    </div >
+      <Footer />
+
+      {/* Botón de cambio de tema fijo */}
+      <div className="ThemeSwitcher">
+        <button onClick={toggleTheme}>
+          <span role="img" aria-label="theme-switch">🌓</span>
+        </button>
+      </div>
+    </div>
   );
 };
+
 
 const App = () => (
   <ThemeProvider>

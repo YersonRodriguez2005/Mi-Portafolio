@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ThemeSwitcher from './ThemeSwitcher';
 import { Menu } from 'lucide-react';
+import './Header.css'
 import { FaHome, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 
 const Header = () => {
@@ -43,8 +44,6 @@ const Header = () => {
                 <FaEnvelope /> <span>Contacto</span>
               </a>
             </nav>
-            {/* Tema */}
-            <ThemeSwitcher />
           </div>
 
           {/* Botón del menú hamburguesa para pantallas móviles */}
@@ -86,10 +85,6 @@ const Header = () => {
               <FaEnvelope /> <span>Contacto</span>
             </a>
           </nav>
-          {/* Tema */}
-          <div className="mt-4">
-            <ThemeSwitcher />
-          </div>
         </div>
       )}
     </header>
