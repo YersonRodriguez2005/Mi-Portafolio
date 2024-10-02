@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import ThemeSwitcher from './ThemeSwitcher';
 import { Menu } from 'lucide-react';
 import './Header.css'
 import { FaHome, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
