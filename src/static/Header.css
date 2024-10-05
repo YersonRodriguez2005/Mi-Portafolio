@@ -8,10 +8,11 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(90deg, rgba(0, 112, 243, 1) 0%, rgba(91, 33, 182, 1) 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(91, 33, 182, 1) 100%);
   color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   padding: 20px 0;
+  animation: smoothMovement 2s ease-in-out infinite;
 }
 
 header h1 {
@@ -26,29 +27,14 @@ nav a {
   display: flex;
   align-items: center;
   font-size: 1rem;
-  color: #e0e7ff;
+  color: #f0f0f0;
   transition: color 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav a:hover,
 nav a:focus {
-  color: #ffeb3b;
-  box-shadow: 0 4px 0 #ffeb3b;
-}
-
-/* Botón de tema */
-.ThemeSwitcher button {
-  background-color: transparent;
-  border: 2px solid #fff;
-  color: #fff;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.ThemeSwitcher button:hover {
-  background-color: #fff;
-  color: #333;
+  color: #ff6666;
+  box-shadow: 0 4px 0 #ff6666;
 }
 
 /* Menú hamburguesa */
@@ -58,7 +44,7 @@ button.md\\:hidden {
 }
 
 button.md\\:hidden:hover {
-  color: #ffeb3b;
+  color: #ff6666;
 }
 
 /* Menú móvil */
@@ -75,7 +61,7 @@ button.md\\:hidden:hover {
 }
 
 .md\\:hidden nav a:hover {
-  color: #ffeb3b;
+  color: #ff6666;
 }
 
 /* Ajustes para pantallas grandes */

@@ -36,7 +36,7 @@ const TechIcon = ({ tech }) => {
   const { icon: IconComponent, color } = techIcons[tech] || {};
   return IconComponent ? (
     <IconComponent 
-      className="text-2xl" 
+      className="text-3xl" 
       style={{ color: color }}
       title={tech}
     />
@@ -45,7 +45,7 @@ const TechIcon = ({ tech }) => {
 
 const ProjectCard = ({ project, isDark }) => (
   <motion.div
-    className={`${isDark ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:shadow-xl hover:-translate-y-2`}
+    className={`${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-300'} shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1`}
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
@@ -62,12 +62,12 @@ const ProjectCard = ({ project, isDark }) => (
           <TechIcon key={i} tech={tech} />
         ))}
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <a
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex items-center ${isDark ? 'text-green-400 hover:text-green-300' : 'text-green-600 hover:text-green-800'}`}
+          className={`flex items-center ${isDark ? 'text-green-400 hover:text-green-300' : 'text-green-600 hover:text-green-800'} transition-colors duration-300`}
         >
           <FaExternalLinkAlt className="mr-2" />
           Ver en vivo
