@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
-import './Header.css'
+import '../static/Header.css'
 import { FaHome, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
 
 const Header = () => {

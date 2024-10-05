@@ -1,0 +1,63 @@
+/* Contenedor fijo de íconos en la esquina inferior derecha */
+.contact-icons {
+  position: fixed;
+  bottom: 100px;
+  right: 37px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+/* Estilos generales para los íconos */
+.contact-icons .icon {
+  font-size: 2rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Colores específicos para cada icono */
+.email {
+  color: #d44638;  /* Rojo para Gmail */
+}
+
+.github {
+  color: #333;  /* Negro/gris oscuro para GitHub */
+}
+
+.linkedin {
+  color: #0077b5;  /* Azul para LinkedIn */
+}
+
+.whatsapp {
+  color: #25D366;  /* Verde para WhatsApp */
+}
+
+/* Hover para los íconos */
+.contact-icons .icon:hover {
+  transform: scale(1.1);
+}
+
+/* Ajuste para tema oscuro */
+.dark-theme .contact-icons .email {
+  color: #ff5722;  /* Rojo anaranjado para Gmail en tema oscuro */
+}
+
+.dark-theme .contact-icons .github {
+  color: #f1f5f9;  /* Blanco para GitHub en tema oscuro */
+}
+
+.dark-theme .contact-icons .linkedin {
+  color: #66c2ff;  /* Azul más claro para LinkedIn en tema oscuro */
+}
+
+.dark-theme .contact-icons .whatsapp {
+  color: #66ff99;  /* Verde más claro para WhatsApp en tema oscuro */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .contact-icons {
+    bottom: 100px;
+    right: 10px;
+  }
+}

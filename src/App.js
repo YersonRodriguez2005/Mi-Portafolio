@@ -1,11 +1,10 @@
 import React, { lazy, Suspense } from 'react';
-import { ThemeProvider, useTheme, } from './contexts/ThemeContext';
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Introduction from './components/Introduction';
 import Footer from './components/Footer';
 import { Loader2 } from 'lucide-react';
-import ParticlesBackground from './components/ParticlesBackground';
-import './App.css'
+import './App.css';
 
 const Projects = lazy(() => import('./components/Projects'));
 const Skills = lazy(() => import('./components/Skills'));
@@ -16,7 +15,6 @@ const AppContent = () => {
 
   return (
     <div className="relative">
-      <ParticlesBackground />
       <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-900 text-gray-100'}`}>
         <Header />
         <main className="container mx-auto px-4 py-8">
@@ -38,8 +36,6 @@ const AppContent = () => {
           </Suspense>
         </main>
         <Footer />
-
-        {/* Botón de cambio de tema fijo */}
         <div className="ThemeSwitcher">
           <button onClick={toggleTheme}>
             <span role="img" aria-label="theme-switch">🌓</span>
@@ -49,7 +45,6 @@ const AppContent = () => {
     </div>
   );
 };
-
 
 const App = () => (
   <ThemeProvider>
