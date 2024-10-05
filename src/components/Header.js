@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
 import '../static/Header.css';
-import { FaHome, FaUser, FaFolderOpen, FaEnvelope } from 'react-icons/fa';
+import { FaHome, FaUser, FaFolderOpen } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,12 +35,6 @@ const Header = () => {
                 className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
               >
                 <FaFolderOpen /> <span>Proyectos</span>
-              </a>
-              <a
-                href="#footer"
-                className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-              >
-                <FaEnvelope /> <span>Contacto</span>
               </a>
             </nav>
           </div>
@@ -76,12 +70,6 @@ const Header = () => {
               className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
             >
               <FaFolderOpen /> <span>Proyectos</span>
-            </a>
-            <a
-              href="#contact"
-              className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-            >
-              <FaEnvelope /> <span>Contacto</span>
             </a>
           </nav>
         </div>
