@@ -18,7 +18,7 @@ const Introduction = () => {
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 1.5, ease: "easeInOut" }}
                 >
-                    ¡Hola! Soy Yerson Fabian
+                    ¡Hola! Soy Yerson Rodriguez
                 </motion.h1>
 
                 {/* Título del cargo actual */}
@@ -28,7 +28,7 @@ const Introduction = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1.5, delay: 0.3, ease: "easeInOut" }}
                 >
-                    Desarrollador de Software Web en Formación
+                    Desarrollador de Software Web
                 </motion.h2>
 
                 {/* Información adicional */}

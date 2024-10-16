@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
-import { FaReact, FaPython, FaExternalLinkAlt, FaHtml5, FaCss3Alt, FaJs } from 'react-icons/fa';
-import { SiFlask, SiVite } from 'react-icons/si';
+import { FaReact, FaPython, FaExternalLinkAlt, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaLaravel, FaDatabase } from 'react-icons/fa';
+import { SiFlask, SiVite, SiComposer } from 'react-icons/si';
 
 // Mapeo de tecnologías a iconos con sus colores representativos
 const techIcons = {
@@ -12,7 +12,11 @@ const techIcons = {
   'Flask': { icon: SiFlask, color: '#000000' },
   'HTML': { icon: FaHtml5, color: '#E34F26' },
   'CSS': { icon: FaCss3Alt, color: '#1572B6' },
-  'JavaScript': { icon: FaJs, color: '#F7DF1E' }
+  'JavaScript': { icon: FaJs, color: '#F7DF1E' },
+  'PHP': { icon: FaPhp, color: '#777BB4' },
+  'Laravel': { icon: FaLaravel, color: '#FF2D20' },
+  'Composer': { icon: SiComposer, color: '#885630' },
+  'MySQL': { icon: FaDatabase, color: '#00758F' }
 };
 
 // Datos de los proyectos
@@ -21,22 +25,53 @@ const projects = [
     name: 'FYLEC',
     description: 'FYLEC es un software web diseñado para la compra y venta de productos de ferreterías en línea, optimizando la experiencia del usuario y la gestión eficiente de productos.',
     technologies: ['React', 'Vite', 'Python', 'Flask'],
-    live: 'https://fylec.com.co'
+    live: 'https://github.com/LuisCabrera03/FYLEC.git'
   },
   {
-    name: 'restaurant-interactive-menu',
+    name: 'CRUD Laravel',
+    description: 'El CRUD en Laravel gestiona Crear, Leer, Actualizar y Eliminar registros usando Eloquent ORM y controladores.',
+    technologies: ['PHP', 'Composer', 'Laravel'],
+    live: 'https://github.com/YersonRodriguez2005/crud-laravel.git'
+  },
+  {
+    name: 'System-POS',
+    description: 'Sistema de Punto de Venta (POS) diseñado para un restaurante de comidas rápidas, que permite gestionar el inventario y registrar las ventas de manera eficiente.',
+    technologies: ['React', 'Flask', 'MySQL', 'CSS'],
+    live: 'https://github.com/YersonRodriguez2005/system-pos.git'
+  },
+  {
+    name: 'Note-App',
+    description: 'Note app web diseñada para facilitar la gestión de notas personales. Los usuarios pueden agregar, actualizar y eliminar notas, así como clasificarlas en diferentes categorías (Personal, Trabajo, Estudio, Ideas, Proyecto).',
+    technologies: ['React', 'Python', 'Flask', 'MySQL'],
+    live: 'https://github.com/YersonRodriguez2005/note-app.git'
+  },
+  {
+    name: 'Task-Manager-App',
+    description: 'Task Manager es una aplicación web diseñada para facilitar la gestión de tareas de manera colaborativa. Los usuarios pueden agregar, actualizar y eliminar tareas.',
+    technologies: ['React', 'Python', 'Flask', 'MySQL'],
+    live: 'https://github.com/YersonRodriguez2005/task-manager-app.git'
+  },
+  {
+    name: 'User-Login-JWT',
+    description: 'Web de inicio de sesión y registro de usuarios utilizando JSON Web Tokens (JWT) para la autenticación.',
+    technologies: ['React', 'Python', 'Flask', 'MySQL'],
+    live: 'https://github.com/YersonRodriguez2005/user-login.git'
+  },
+  {
+    name: 'Restaurant-Interactive-Menu',
     description: 'Es un proyecto que presenta el menú de un restaurante de forma interactiva, organizado por categorías como entradas, platos principales, postres y bebidas.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    live: 'https://yersonrodriguez2005.github.io/restaurant-interactive-menu/'
-  },
+    live: 'https://github.com/YersonRodriguez2005/restaurant-interactive-menu.git'
+  }
   // Puedes agregar más proyectos según sea necesario
 ];
+
 
 const TechIcon = ({ tech }) => {
   const { icon: IconComponent, color } = techIcons[tech] || {};
   return IconComponent ? (
-    <IconComponent 
-      className="text-3xl" 
+    <IconComponent
+      className="text-3xl"
       style={{ color: color }}
       title={tech}
     />
@@ -70,7 +105,7 @@ const ProjectCard = ({ project, isDark }) => (
           className={`flex items-center ${isDark ? 'text-green-400 hover:text-green-300' : 'text-green-600 hover:text-green-800'} transition-colors duration-300`}
         >
           <FaExternalLinkAlt className="mr-2" />
-          Ver en vivo
+          Ver Repositorio
         </a>
       </div>
     </div>
@@ -84,7 +119,7 @@ const Projects = () => {
   return (
     <section id="projects" className={`py-16 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
       <div className="container mx-auto px-4">
-        <motion.h2 
+        <motion.h2
           className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-800'}`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
