@@ -1,77 +1,62 @@
 import React, { useState } from 'react';
 import { Menu } from 'lucide-react';
-import '../static/Header.css';
 import { FaHome, FaUser, FaFolderOpen } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-black via-gray-900 to-red-900 text-white py-4 shadow-2xl">
+    <header className="bg-gradient-to-br from-black via-gray-900 to-purple-900 animate-gradient-diagonal bg-[length:200%_200%] text-white py-4 shadow-lg animate-gradient-x bg-[length:200%_200%]">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
           {/* Título del portafolio */}
-          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight">
+          <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight hover:scale-105 transition-transform">
             Mi Portafolio
           </h1>
 
           {/* Navegación para pantallas grandes */}
-          <div className="hidden md:flex items-center space-x-6">
-            <nav className="space-x-6 flex items-center">
-              <a
-                href="#home"
-                className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-              >
-                <FaHome /> <span>Inicio</span>
-              </a>
-              <a
-                href="#about"
-                className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-              >
-                <FaUser /> <span>Sobre mí</span>
-              </a>
-              <a
-                href="#projects"
-                className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-              >
-                <FaFolderOpen /> <span>Proyectos</span>
-              </a>
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex space-x-6">
+              {["Inicio", "Sobre mí", "Proyectos"].map((item, index) => (
+                <a
+                  key={index}
+                  href={`#${item.toLowerCase().replace(" ", "")}`}
+                  className="relative text-lg font-medium group"
+                >
+                  <span className="group-hover:text-red-400 transition duration-300">
+                    {item}
+                  </span>
+                  <span className="absolute left-0 bottom-0 w-0 h-1 bg-red-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ))}
             </nav>
           </div>
 
-          {/* Botón del menú hamburguesa para pantallas móviles */}
+          {/* Botón del menú hamburguesa */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white hover:text-red-400"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            <Menu size={24} />
+            <Menu size={28} className="transition-transform duration-300" />
           </button>
         </div>
       </div>
 
-      {/* Menú desplegable para pantallas móviles */}
+      {/* Menú desplegable para móviles */}
       {isMenuOpen && (
-        <div className="md:hidden mt-4 px-4">
-          <nav className="flex flex-col space-y-4 bg-black bg-opacity-90 rounded-lg p-4">
+        <div className="md:hidden mt-4 bg-gray-900 bg-opacity-95 rounded-lg shadow-lg p-6 space-y-4">
+          {["Inicio", "Sobre mí", "Proyectos"].map((item, index) => (
             <a
-              href="#home"
-              className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
+              key={index}
+              href={`#${item.toLowerCase().replace(" ", "")}`}
+              className="flex items-center space-x-2 text-lg text-white hover:text-red-400 transition duration-300"
             >
-              <FaHome /> <span>Inicio</span>
+              {item === "Inicio" && <FaHome />}
+              {item === "Sobre mí" && <FaUser />}
+              {item === "Proyectos" && <FaFolderOpen />}
+              <span>{item}</span>
             </a>
-            <a
-              href="#about"
-              className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-            >
-              <FaUser /> <span>Sobre mí</span>
-            </a>
-            <a
-              href="#projects"
-              className="flex items-center space-x-2 hover:text-red-400 transition duration-300 font-medium"
-            >
-              <FaFolderOpen /> <span>Proyectos</span>
-            </a>
-          </nav>
+          ))}
         </div>
       )}
     </header>

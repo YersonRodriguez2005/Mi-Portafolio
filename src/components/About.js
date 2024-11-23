@@ -14,7 +14,7 @@ const About = () => {
           className={`text-4xl font-bold mb-8 text-center ${isDark ? 'text-white' : 'text-gray-800'}`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
         >
           Sobre Mí
         </motion.h2>
@@ -24,7 +24,7 @@ const About = () => {
           className={`text-lg mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
           Me enfoco en el desarrollo de soluciones tecnológicas colaborativas que impacten positivamente.
           Tengo experiencia en equipos, aplicando prácticas de desarrollo estructurado y organizado.
@@ -32,12 +32,11 @@ const About = () => {
         </motion.p>
 
         {/* Enlace para descargar CV */}
-        {/* Contenedor centrado */}
-        <div className="flex justify-center py-4">
+        <div className="flex justify-center py-6">
           <motion.a
             href="/CV.pdf" // Asegúrate de que el archivo está en la carpeta public
             className={`text-center inline-block text-lg font-medium px-6 py-3 rounded-md transition-all duration-300 
-                ${isDark ? 'bg-blue-500 text-white hover:bg-blue-400' : 'bg-blue-600 text-white hover:bg-blue-500'} shadow-md`}
+                ${isDark ? 'bg-gradient-to-r from-purple-light to-purple-dark text-white' : 'bg-gradient-to-r from-purple-500 to-purple-700 text-white'} shadow-md animate-gradient-background`}
             download
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

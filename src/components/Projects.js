@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../contexts/ThemeContext';
 import { FaReact, FaPython, FaExternalLinkAlt, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaLaravel, FaDatabase } from 'react-icons/fa';
 import { SiFlask, SiVite, SiComposer } from 'react-icons/si';
+import '../App.css'
 
 // Mapeo de tecnologías a iconos con sus colores representativos
 const techIcons = {
@@ -29,7 +30,7 @@ const projects = [
   },
   {
     name: 'CRUD Laravel',
-    description: 'El CRUD en Laravel gestiona Crear, Leer, Actualizar y Eliminar registros usando Eloquent ORM y controladores.',
+    description: 'El CRUD en Laravel gestiona Crear, Leer, Actualizar, Eliminar y filtrar registros usando Eloquent ORM, controladores, migraciones, validaciones y relaciones entre modelos.',
     technologies: ['PHP', 'Composer', 'Laravel'],
     live: 'https://github.com/YersonRodriguez2005/crud-laravel.git'
   },
@@ -47,13 +48,13 @@ const projects = [
   },
   {
     name: 'Task-Manager-App',
-    description: 'Task Manager es una aplicación web diseñada para facilitar la gestión de tareas de manera colaborativa. Los usuarios pueden agregar, actualizar y eliminar tareas.',
+    description: 'Task Manager es una aplicación web diseñada para facilitar la gestión eficiente de tareas de manera colaborativa. Los usuarios pueden agregar, actualizar, priorizar y eliminar tareas fácilmente.',
     technologies: ['React', 'Python', 'Flask', 'MySQL'],
     live: 'https://github.com/YersonRodriguez2005/task-manager-app.git'
   },
   {
     name: 'User-Login-JWT',
-    description: 'Web de inicio de sesión y registro de usuarios utilizando JSON Web Tokens (JWT) para la autenticación.',
+    description: 'Web de inicio de sesión y registro de usuarios utilizando JSON Web Tokens (JWT) para la autenticación segura, manejo de sesiones persistentes y protección contra ataques de seguridad comunes.',
     technologies: ['React', 'Python', 'Flask', 'MySQL'],
     live: 'https://github.com/YersonRodriguez2005/user-login.git'
   },
@@ -79,38 +80,38 @@ const TechIcon = ({ tech }) => {
 };
 
 const ProjectCard = ({ project, isDark }) => (
-  <motion.div
-    className={`${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-300'} shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1`}
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
-    <div className="p-6">
-      <h3 className={`text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-800'}`}>
-        {project.name}
-      </h3>
-      <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-        {project.description}
-      </p>
-      <div className="flex flex-wrap gap-4 mb-4">
-        {project.technologies.map((tech, i) => (
-          <TechIcon key={i} tech={tech} />
-        ))}
-      </div>
-      <div className="flex justify-between items-center">
-        <a
-          href={project.live}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex items-center ${isDark ? 'text-green-400 hover:text-green-300' : 'text-green-600 hover:text-green-800'} transition-colors duration-300`}
-        >
-          <FaExternalLinkAlt className="mr-2" />
-          Ver Repositorio
-        </a>
+  <div className="relative p-[2px] rounded-lg bg-gradient-to-r from-purple-500 via-purple-950 to-purple-500 animate-gradient-border bg-[length:200%_200%]">
+    <div
+      className={`rounded-lg overflow-hidden ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-lg`}
+    >
+      <div className="p-6">
+        <h3 className={`text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-800'}`}>
+          {project.name}
+        </h3>
+        <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-4 mb-4">
+          {project.technologies.map((tech, i) => (
+            <TechIcon key={i} tech={tech} />
+          ))}
+        </div>
+        <div className="flex justify-between items-center">
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex items-center ${isDark ? 'text-green-400 hover:text-green-300' : 'text-green-600 hover:text-green-800'} transition-colors duration-300`}
+          >
+            <FaExternalLinkAlt className="mr-2" />
+            Ver Repositorio
+          </a>
+        </div>
       </div>
     </div>
-  </motion.div>
+  </div>
 );
+
 
 const Projects = () => {
   const { theme } = useTheme();

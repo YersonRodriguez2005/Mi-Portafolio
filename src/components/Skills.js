@@ -29,7 +29,12 @@ const skills = {
 // Componente individual para cada categoría de habilidades
 const SkillCard = ({ category, items, isDark }) => (
   <motion.div
-    className={`${isDark ? 'bg-gray-800' : 'bg-white'} shadow-lg rounded-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
+    className={`${isDark ? 'bg-gray-800' : 'bg-white'} 
+                shadow-lg rounded-lg p-6 
+                border-4 border-transparent 
+                border-image 
+                animate-border-pulse
+                hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2`}
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
