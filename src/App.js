@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from 'react';
-import { ThemeProvider, useTheme } from './contexts/ThemeContext';
 import Header from './components/Header';
 import Introduction from './components/Introduction';
 import Footer from './components/Footer';
@@ -10,20 +9,20 @@ const Projects = lazy(() => import('./components/Projects'));
 const Skills = lazy(() => import('./components/Skills'));
 const About = lazy(() => import('./components/About'));
 
-const AppContent = () => {
-  const { theme, toggleTheme } = useTheme();
-
-  return (
+const App = () => (
+  <React.StrictMode>
     <div className="relative">
-      <div className={`min-h-screen ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-900 text-gray-100'}`}>
+      <div className="min-h-screen dark-theme">
         <Header />
         <main className="container mx-auto px-4 py-8">
           <Introduction />
-          <Suspense fallback={
-            <div className="flex justify-center items-center h-64">
-              <Loader2 className="h-8 w-8 animate-spin" />
-            </div>
-          }>
+          <Suspense
+            fallback={
+              <div className="flex justify-center items-center h-64">
+                <Loader2 className="h-8 w-8 animate-spin" />
+              </div>
+            }
+          >
             <section id="projects">
               <Projects />
             </section>
@@ -36,22 +35,9 @@ const AppContent = () => {
           </Suspense>
         </main>
         <Footer />
-        <div className="ThemeSwitcher">
-          <button onClick={toggleTheme}>
-            <span role="img" aria-label="theme-switch">🌓</span>
-          </button>
-        </div>
       </div>
     </div>
-  );
-};
-
-const App = () => (
-  <ThemeProvider>
-    <React.StrictMode>
-      <AppContent />
-    </React.StrictMode>
-  </ThemeProvider>
+  </React.StrictMode>
 );
 
 export default App;

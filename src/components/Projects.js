@@ -1,11 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useTheme } from '../contexts/ThemeContext';
-import { FaReact, FaPython, FaExternalLinkAlt, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaLaravel, FaDatabase } from 'react-icons/fa';
+import { FaReact, FaPython, FaExternalLinkAlt, FaHtml5, FaCss3Alt, FaJs, FaPhp, FaLaravel, FaDatabase, FaGithub } from 'react-icons/fa';
 import { SiFlask, SiVite, SiComposer } from 'react-icons/si';
-import '../App.css'
 
-// Mapeo de tecnologías a iconos con sus colores representativos
 const techIcons = {
   'React': { icon: FaReact, color: '#61DAFB' },
   'Vite': { icon: SiVite, color: '#646CFF' },
@@ -20,7 +17,6 @@ const techIcons = {
   'MySQL': { icon: FaDatabase, color: '#00758F' }
 };
 
-// Datos de los proyectos
 const projects = [
   {
     name: 'FYLEC',
@@ -42,7 +38,7 @@ const projects = [
   },
   {
     name: 'Note-App',
-    description: 'Note app web diseñada para facilitar la gestión de notas personales. Los usuarios pueden agregar, actualizar y eliminar notas, así como clasificarlas en diferentes categorías (Personal, Trabajo, Estudio, Ideas, Proyecto).',
+    description: 'Note app web diseñada para facilitar la gestión de notas personales. Los usuarios pueden agregar, actualizar y eliminar notas, así como clasificarlas en diferentes categorías.',
     technologies: ['React', 'Python', 'Flask', 'MySQL'],
     live: 'https://github.com/YersonRodriguez2005/note-app.git'
   },
@@ -64,78 +60,99 @@ const projects = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     live: 'https://github.com/YersonRodriguez2005/restaurant-interactive-menu.git'
   }
-  // Puedes agregar más proyectos según sea necesario
 ];
-
 
 const TechIcon = ({ tech }) => {
   const { icon: IconComponent, color } = techIcons[tech] || {};
   return IconComponent ? (
-    <IconComponent
-      className="text-3xl"
-      style={{ color: color }}
-      title={tech}
-    />
+    <motion.div
+      whileHover={{ scale: 1.2 }}
+      className="group relative"
+    >
+      <IconComponent
+        className="text-3xl transition-all duration-300 group-hover:shadow-lg"
+        style={{ color }}
+        title={tech}
+      />
+      <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs text-white bg-gray-900 px-2 py-1 rounded whitespace-nowrap">
+        {tech}
+      </span>
+    </motion.div>
   ) : null;
 };
 
-const ProjectCard = ({ project, isDark }) => (
-  <div className="relative p-[2px] rounded-lg bg-gradient-to-r from-purple-500 via-purple-950 to-purple-500 animate-gradient-border bg-[length:200%_200%]">
-    <div
-      className={`rounded-lg overflow-hidden ${isDark ? 'bg-gray-800' : 'bg-white'} shadow-lg`}
-    >
-      <div className="p-6">
-        <h3 className={`text-2xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-800'}`}>
-          {project.name}
-        </h3>
-        <p className={`mb-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-4 mb-4">
-          {project.technologies.map((tech, i) => (
-            <TechIcon key={i} tech={tech} />
-          ))}
-        </div>
-        <div className="flex justify-between items-center">
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center ${isDark ? 'text-green-400 hover:text-green-300' : 'text-green-600 hover:text-green-800'} transition-colors duration-300`}
-          >
-            <FaExternalLinkAlt className="mr-2" />
-            Ver Repositorio
-          </a>
+const ProjectCard = ({ project }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    whileHover={{ y: -5 }}
+    transition={{ duration: 0.5 }}
+    className="h-full"
+  >
+    <div className="relative h-full p-[2px] rounded-xl bg-gradient-to-br from-purple-500 via-purple-950 to-purple-500 animate-gradient-diagonal bg-[length:200%_200%] group">
+      <div className="h-full rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-purple-900/50 backdrop-blur-sm shadow-xl">
+        <div className="p-6 h-full flex flex-col">
+          <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-light to-white animate-gradient-background">
+            {project.name}
+          </h3>
+          <p className="mb-6 text-gray-300 flex-grow">
+            {project.description}
+          </p>
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-6 mb-4">
+              {project.technologies.map((tech, i) => (
+                <TechIcon key={i} tech={tech} />
+              ))}
+            </div>
+            <div className="flex justify-between items-center pt-4 border-t border-purple-500/20">
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center space-x-2 text-purple-400 hover:text-white transition-colors duration-300 group"
+              >
+                <FaGithub className="w-5 h-5" />
+                <span>Ver Repositorio</span>
+                <FaExternalLinkAlt className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </motion.div>
 );
 
+const Projects = () => (
+  <section id="projects" className="py-24 min-h-screen relative">
+    {/* Fondo con gradiente y efectos */}
+    <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900 animate-gradient-diagonal bg-[length:200%_200%]">
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full mix-blend-overlay filter blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-800/20 rounded-full mix-blend-overlay filter blur-3xl animate-pulse delay-1000"></div>
+    </div>
 
-const Projects = () => {
-  const { theme } = useTheme();
-  const isDark = theme === 'dark';
-
-  return (
-    <section id="projects" className={`py-16 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
-      <div className="container mx-auto px-4">
-        <motion.h2
-          className={`text-4xl font-bold text-center mb-12 ${isDark ? 'text-white' : 'text-gray-800'}`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+    <div className="container mx-auto px-4 relative z-10">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-light to-white animate-gradient-background mb-4">
           Mis Proyectos
-        </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} project={project} isDark={isDark} />
-          ))}
-        </div>
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-900 mx-auto rounded-full"></div>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Projects;
