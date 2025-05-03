@@ -1,12 +1,8 @@
 body,
 .dark-theme {
-  background-color: #0C111B;
+  background-color: #121212;
   color: #e0e0e0;
   font-family: 'Arial', sans-serif;
-}
-
-.animate-spin {
-  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {

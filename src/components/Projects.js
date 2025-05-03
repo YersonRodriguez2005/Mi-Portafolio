@@ -90,10 +90,15 @@ const ProjectCard = ({ project }) => (
     transition={{ duration: 0.5 }}
     className="h-full"
   >
-    <div className="relative h-full p-[2px] rounded-xl bg-gradient-to-br from-purple-500 via-purple-950 to-purple-500 animate-gradient-diagonal bg-[length:200%_200%] group">
-      <div className="h-full rounded-xl overflow-hidden bg-gradient-to-br from-gray-900 via-gray-900 to-purple-900/50 backdrop-blur-sm shadow-xl">
+    <div className="relative h-full p-[2px] rounded-xl overflow-hidden">
+      {/* Borde animado */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white via-gray-500 to-white"></div>
+
+      {/* Contenido de la tarjeta */}
+      <div className="h-full rounded-xl overflow-hidden bg-[#121212] relative z-10">
         <div className="p-6 h-full flex flex-col">
-          <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-light to-white animate-gradient-background">
+          {/* Título con animación de gradiente */}
+          <h3 className="text-2xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-500 to-white animate-gradient">
             {project.name}
           </h3>
           <p className="mb-6 text-gray-300 flex-grow">
@@ -105,12 +110,12 @@ const ProjectCard = ({ project }) => (
                 <TechIcon key={i} tech={tech} />
               ))}
             </div>
-            <div className="flex justify-between items-center pt-4 border-t border-purple-500/20">
+            <div className="flex justify-between items-center pt-4 border-t border-gray-700">
               <a
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-purple-400 hover:text-white transition-colors duration-300 group"
+                className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors duration-300 group"
               >
                 <FaGithub className="w-5 h-5" />
                 <span>Ver Repositorio</span>
@@ -125,25 +130,37 @@ const ProjectCard = ({ project }) => (
 );
 
 const Projects = () => (
-  <section id="projects" className="py-24 min-h-screen relative">
-    {/* Fondo con gradiente y efectos */}
-    <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-purple-900 animate-gradient-diagonal bg-[length:200%_200%]">
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full mix-blend-overlay filter blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-purple-800/20 rounded-full mix-blend-overlay filter blur-3xl animate-pulse delay-1000"></div>
-    </div>
+  <section id="proyectos" className="py-24 min-h-screen bg-[#121212]">
+    {/* Estilos CSS para animación de gradiente */}
+    <style jsx>{`
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+      .animate-gradient {
+        background-size: 200% 100%;
+        animation: gradientMove 2s linear infinite;
+      }
+    `}</style>
 
-    <div className="container mx-auto px-4 relative z-10">
+    <div className="container mx-auto px-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-center mb-16"
       >
-        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-light to-white animate-gradient-background mb-4">
-          Mis Proyectos
+        <h2 className="text-xl md:text-5xl font-extrabold tracking-tight mb-4">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-500 to-white animate-gradient">
+            Mis Proyectos
+          </span>
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-purple-500 to-purple-900 mx-auto rounded-full"></div>
+
+        <div className="w-24 h-1 bg-white mx-auto rounded-full"></div>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -152,6 +169,7 @@ const Projects = () => (
         ))}
       </div>
     </div>
+    <div className="w-30 h-0.5 bg-white mx-auto rounded-full mt-20"></div>
   </section>
 );
 

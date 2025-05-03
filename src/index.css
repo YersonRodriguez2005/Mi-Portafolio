@@ -10,8 +10,3 @@
   --text-color-light: #000000;
   --text-color-dark: #ffffff;
 }
-
-.dark {
-  background-color: var(--bg-color-dark);
-  color: var(--text-color-dark);
-}
