@@ -11,13 +11,64 @@ const About = () => {
           0% {
             background-position: 0% 50%;
           }
-          100% {
+          25% {
             background-position: 100% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          75% {
+            background-position: 0% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
           }
         }
         .animate-gradient {
-          background-size: 200% 100%;
-          animation: gradientMove 2s linear infinite;
+          background-size: 400% 100%;
+          animation: gradientMove 8s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+        }
+        
+        @keyframes pulse-border {
+          0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+          }
+          70% {
+            box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+          }
+        }
+        
+        .animate-button {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.4s ease;
+        }
+        
+        .animate-button::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          transition: left 0.7s ease;
+        }
+        
+        .animate-button:hover::before {
+          left: 100%;
+        }
+        
+        .pulse-animation {
+          animation: pulse-border 2s infinite;
         }
       `}</style>
 
@@ -151,12 +202,28 @@ const About = () => {
         <div className="flex justify-center mt-10">
           <motion.a
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 400, 
+              damping: 17 
+            }}
             href="/cv.pdf"
             download
-            className="inline-flex items-center space-x-3 px-8 py-4 bg-white text-[#121212] font-medium rounded-xl shadow-lg"
+            className="animate-button pulse-animation inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-white to-gray-300 text-[#121212] font-medium rounded-xl shadow-lg relative z-10"
           >
-            <FileDown className="w-5 h-5" />
+            <motion.div
+              animate={{ 
+                rotate: [0, 10, -10, 10, 0],
+                transition: { 
+                  repeat: Infinity, 
+                  repeatDelay: 5,
+                  duration: 1 
+                }
+              }}
+            >
+              <FileDown className="w-5 h-5" />
+            </motion.div>
             <span className="text-lg font-medium">Descargar CV</span>
           </motion.a>
         </div>
