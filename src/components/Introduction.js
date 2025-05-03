@@ -77,7 +77,7 @@ const Introduction = () => {
         >
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-white animate-gradient">
-              ¡Hola! Soy Yerson Rodriguez 
+              ¡Hola! Soy Yerson Rodriguez
             </span>
           </h1>
 
