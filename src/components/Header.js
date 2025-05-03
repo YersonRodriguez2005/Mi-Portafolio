@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { FaHome, FaUser, FaFolderOpen } from 'react-icons/fa';
+import { FaHome, FaUser, FaFolderOpen, FaCode } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,8 +17,9 @@ const Header = () => {
 
   const navItems = [
     { name: "Inicio", icon: FaHome },
-    { name: "Sobre mí", icon: FaUser },
-    { name: "Proyectos", icon: FaFolderOpen }
+    { name: "About", icon: FaUser },
+    { name: "Proyectos", icon: FaFolderOpen },
+    { name: "Skills", icon: FaCode }
   ];
 
   return (

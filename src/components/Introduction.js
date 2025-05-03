@@ -31,7 +31,7 @@ const Introduction = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-24 pb-16 px-4 md:px-6 text-white overflow-hidden bg-[#121212]">
+    <section id='inicio' className="relative min-h-screen pt-24 pb-16 px-4 md:px-6 text-white overflow-hidden bg-[#121212]">
       {/* Estilos para las animaciones de gradiente */}
       <style jsx>{`
         @keyframes gradientMove {
