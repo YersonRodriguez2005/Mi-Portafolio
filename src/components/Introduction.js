@@ -75,7 +75,7 @@ const Introduction = () => {
           className="text-center space-y-6 mb-16"
           variants={itemVariants}
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mt-10">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-400 to-white animate-gradient">
               ¡Hola! Soy Yerson Rodriguez
             </span>
@@ -111,7 +111,7 @@ const Introduction = () => {
 
         {/* Cards Grid */}
         <motion.div
-          className="grid md:grid-cols-3 gap-6 mb-16"
+          className="grid md:grid-cols-3 gap-6 mb-16 mt-40"
           variants={containerVariants}
         >
           {[
