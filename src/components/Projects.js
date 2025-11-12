@@ -25,12 +25,6 @@ const projects = [
     live: 'https://github.com/LuisCabrera03/FYLEC.git'
   },
   {
-    name: 'CRUD Laravel',
-    description: 'El CRUD en Laravel gestiona Crear, Leer, Actualizar, Eliminar y filtrar registros usando Eloquent ORM, controladores, migraciones, validaciones y relaciones entre modelos.',
-    technologies: ['PHP', 'Composer', 'Laravel'],
-    live: 'https://github.com/YersonRodriguez2005/crud-laravel.git'
-  },
-  {
     name: 'System-POS',
     description: 'Sistema de Punto de Venta (POS) diseñado para un restaurante de comidas rápidas, que permite gestionar el inventario y registrar las ventas de manera eficiente.',
     technologies: ['React', 'Flask', 'MySQL', 'CSS'],

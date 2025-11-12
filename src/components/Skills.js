@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaPhp, FaPython, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaDatabase } from 'react-icons/fa';
-import { SiVuedotjs, SiPostgresql, SiVisualstudiocode, SiPostman, SiChatbot, SiTailwindcss, SiMui, SiExpress, SiVite } from 'react-icons/si';
+import { SiPostgresql, SiVisualstudiocode, SiPostman, SiChatbot, SiTailwindcss, SiMui, SiExpress, SiVite } from 'react-icons/si';
 
 const skills = {
   "Lenguajes": [
@@ -13,9 +13,8 @@ const skills = {
   ],
   "Frameworks": [
     { name: 'React', Icon: FaReact, color: '#61DAFB' },
-    { name: 'Vue.js', Icon: SiVuedotjs, color: '#4FC08D' },
     { name: 'Node.js', Icon: FaNodeJs, color: '#339933' },
-    { name: 'Express', Icon: SiExpress, color: '#000000' },
+    { name: 'Express', Icon: SiExpress, color: '#f5f5f5' },
     { name: 'Tailwind', Icon: SiTailwindcss, color: '#06B6D4' },
     { name: 'Material UI', Icon: SiMui, color: '#0081CB' },
   ],
@@ -25,7 +24,7 @@ const skills = {
   ],
   "Herramientas": [
     { name: 'Git', Icon: FaGitAlt, color: '#F05032' },
-    { name: 'GitHub', Icon: FaGithub, color: '#181717' },
+    { name: 'GitHub', Icon: FaGithub, color: '#cccccc' },
     { name: 'VS Code', Icon: SiVisualstudiocode, color: '#007ACC' },
     { name: 'ChatGPT', Icon: SiChatbot, color: '#00A67E' },
     { name: 'Postman', Icon: SiPostman, color: '#FF6C37' },

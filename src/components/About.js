@@ -108,7 +108,7 @@ const About = () => {
                     <div>
                       <h3 className="text-xl font-semibold text-white mb-2">Desarrollo Web</h3>
                       <p className="text-white/90 leading-relaxed">
-                        Especializado en desarrollo frontend con React o Vue y backend con Node/Express o PHP, creando aplicaciones web eficientes y con excelente experiencia de usuario.
+                        Especializado en desarrollo frontend con React y backend con Node/Express o python con flask, creando aplicaciones web eficientes y con excelente experiencia de usuario.
                       </p>
                     </div>
                   </div>
@@ -135,7 +135,7 @@ const About = () => {
                     <div>
                       <h3 className="text-xl font-semibold text-white mb-2">Formación Académica</h3>
                       <p className="text-white/90 leading-relaxed">
-                        Tecnología en Análisis y Desarrollo de Software en el SENA, con enfoque en desarrollo web y aplicaciones interactivas.
+                        Tecnología en Análisis y Desarrollo de Software en el SENA, con enfoque en desarrollo web y documentación técnica.
                       </p>
                     </div>
                   </div>
@@ -208,7 +208,7 @@ const About = () => {
               stiffness: 400, 
               damping: 17 
             }}
-            href="/cv.pdf"
+            href="../../public/PDF/CV.pdf"
             download
             className="animate-button pulse-animation inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-white to-gray-300 text-[#121212] font-medium rounded-xl shadow-lg relative z-10"
           >
