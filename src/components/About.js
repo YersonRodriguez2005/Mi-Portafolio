@@ -208,7 +208,7 @@ const About = () => {
               stiffness: 400, 
               damping: 17 
             }}
-            href="../../public/PDF/CV.pdf"
+            href="/PDF/CV.pdf"
             download
             className="animate-button pulse-animation inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-white to-gray-300 text-[#121212] font-medium rounded-xl shadow-lg relative z-10"
           >
